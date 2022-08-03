@@ -1,8 +1,11 @@
 /* -------  General Styles ------- */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Lato", sans-serif;
-  display: grid;
 }
 
 h2 {
@@ -20,8 +23,6 @@ h3 {
 p {
   line-height: 1.5em;
   margin: 0;
-  padding-top: 15px;
-  padding-bottom: 15px;
 }
 
 section {
@@ -29,22 +30,12 @@ section {
 }
 
 section.alternate-background {
-  background-color: #87CBAC;
+  background-color: #00a699;
   color: #fff;
 }
 
 main img {
-  width: 100%;
-}
-
-.about-img {
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-
-.host-img {
-  padding-top: 10px;
-  padding-bottom: 10px;
+  width: 100px;
 }
 
 /* ---  Groups & Items --- */
@@ -56,34 +47,25 @@ main img {
 
 .item {
   flex: 1;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 .item-double {
   flex: 2;
-  margin: 10px;
 }
 
 /* -------  Navigation ------- */
 
 header {
-  background-color: #8AC4FF;
-  padding: 30px 30px 0 20px;
+  background-color: #ff385c;
+  padding: 20px 20px 0 20px;
   text-align: center;
 }
 
 .logo {
-  display: flex;
   font-family: "Pangolin", cursive;
-  font-size: 64px;
-  color: #7A7978;
-  justify-content: center;
-}
-
-header nav ul {
-  display: flex;
-  justify-content: center;
-  text-decoration: none;
+  font-size: 72px;
+  color: #fff;
 }
 
 header nav ul li {
@@ -91,38 +73,40 @@ header nav ul li {
 }
 
 header nav ul li a {
-  color: #7A7978;
-  padding: 0 20px 0 0;
+  color: #fff;
   text-decoration: none;
+  padding: 0 20px 0 0;
 }
 
 header nav ul li a:hover {
-  color: #90FFDC;
-  text-decoration: underline;
+  color: #bdbdbd;
+  text-decoration: none;
+}
+
+#menu {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
 }
 
 /* -------  Search Form ------- */
-
 form {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  border: 2px solid #8DE4FF;
+  border: 2px solid #ff385c;
   padding: 10px;
 }
 
 form label {
   font-weight: bold;
-  padding-right: 10px;
 }
 
-form button:hover {
-    color: #7A7978;
-  text-decoration: none;
+form select,
+form input {
+  margin-bottom: 20px;
+  width: 180px;
 }
 
 form button {
-  background-color: #8DE4FF;
+  background-color: #ff385c;
   border: none;
   color: #fff;
   font-size: 24px;
@@ -130,101 +114,114 @@ form button {
   width: 100%;
 }
 
-.form-input {
+form div {
   display: flex;
-  justify-content: space-between;
+  justify-content:space-between;
 }
+
+/* -------  About ------- */
+
+#about {
+  display: flex;
+  flex-direction: column;
+}
+
+img.item {
+  width: 100%;
+}
+
+img.item-double {
+  width: 100%;
+}
+
+#host img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 
 /* -------  Footer ------- */
 
 footer {
-  background-color: #8AC4FF;
+  background-color: #ff385c;
 }
 
 footer p {
-  color: #7A7978;
+  color: #fff;
   text-align: center;
   padding: 20px;
 }
 
 /* -------  Media Query ------- */
 
-
-/* -------  General Styles ------- */
-
-@media all and (min-width: 480px) {
-  header {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 15px;
-  }
-  
+@media all and (max-width: 380px) {
   .logo {
     font-size: 48px;
-    padding-left: 5px;
-  }
+  }  
 
-  /* -------  Search Form ------- */
+}
+
+@media all and (min-width: 480px) {
 
   form {
-    align-items: center;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    padding: 10px 10px 10px 10px;
+    justify-content:space-between;
+    gap: .5rem;
   }
 
   form div {
     display: flex;
     flex-direction: column;
+    min-width: 0;
   }
 
-  form label {
-    padding-bottom: 15px;
-    font-weight: bold;
+  form button {
+    max-width: 20%;
   }
 
-  .form-input {
-    padding-right: 15px;
-    justify-content: center;
-  }
-
-  button {
-    justify-content: center;
-  }
-
-  /* -------  Groups & Items------- */
+  form select,
+form input {
+  margin-bottom: 20px;
+  width: 100%;
+}
 
   .group {
-    align-items: center;
-    display: flex;
-    justify-content: center;
     flex-direction: row;
+    align-items: center;
+    gap: 10px
   }
 
-  .item button,
-  .item input,
-  .item label,
-  .item select {
+  #about .group img.item {
+    width: 0;
+  }
+  
+  img.item-double {
+    width: 0;
+  }
+
+  #ideas .group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #host .group img.item {
+    width: 0;
+  }
+}
+
+@media all and (min-width: 650px) {
+  header {
     display: flex;
-    width: 100%;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
   }
+}
 
-  .item {
-    flex: 1;
-    margin: 15px;
-  }
-
-  .item-double {
-    flex: 2;
-    margin: 15px;
-  }
-
-  p {
-    padding-left: 10px;
-    padding-right: 10px;
+@media all and (min-width: 1000px) {
+  form select,
+  form input {
+    margin-bottom: 20px;
+    width: 180px;
   }
 }
