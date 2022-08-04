@@ -76,6 +76,7 @@ header nav {
 
 header nav ul {
   display: flex;
+  flex-direction: row;
   padding-left: 0;
   list-style: none;
 }
@@ -104,6 +105,8 @@ header nav ul li a:hover {
 /* -------  Search Form ------- */
 
 form {
+  display: flex;
+  flex-direction: row;
   border: 2px solid #ff385c;
   padding: 10px;
 }
