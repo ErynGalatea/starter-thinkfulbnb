@@ -121,6 +121,8 @@ form select, form input {
 }
 
 form button {
+  display: flex;
+  flex-direction: row;
   background-color: #ff385c;
   border: none;
   color: #fff;
