@@ -202,6 +202,10 @@ footer p {
 
 /* rule for About section */
 
+#about div {
+  display: flex;
+  flex-direction: row;
+}
 @media all and (min-width: 750px) {
   .col {
     display: flex;
