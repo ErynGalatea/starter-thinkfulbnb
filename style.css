@@ -197,6 +197,7 @@ footer p {
     margin-right: 40px;
   }
   .button-container {
+    width: 20%;
     display: flex;
     justify-content: flex-end;
   }
