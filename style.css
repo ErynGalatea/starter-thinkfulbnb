@@ -1,8 +1,11 @@
 /* -------  General Styles ------- */
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: "Lato", sans-serif;
-  width: 100%;
 }
 
 h2 {
@@ -32,31 +35,23 @@ section.alternate-background {
 }
 
 main img {
-  width: 100%;
-  height: auto;
+  width: 100px;
 }
+
+/* ---  Groups & Items --- */
 
 .group {
   display: flex;
-  flex-direction: row;
-}
-
-.col {
-  align-items: center;
+  flex-direction: column;
 }
 
 .item {
   flex: 1;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 
 .item-double {
   flex: 2;
-}
-
-.paragraph {
-  display:flex;
-  flex 2;
 }
 
 /* -------  Navigation ------- */
@@ -65,30 +60,16 @@ header {
   background-color: #ff385c;
   padding: 20px 20px 0 20px;
   text-align: center;
-  margin-bottom: 40px;
 }
 
 .logo {
   font-family: "Pangolin", cursive;
-  font-size: 50px;
+  font-size: 72px;
   color: #fff;
-}
-
-header nav {
-  display: flex;
-  justify-content: center;
-}
-
-header nav ul {
-  display: flex;
-  flex-direction: row;
-  padding-left: 0;
-  list-style: none;
 }
 
 header nav ul li {
   list-style-type: none;
-  font-size: x-large;
 }
 
 header nav ul li a {
@@ -97,37 +78,34 @@ header nav ul li a {
   padding: 0 20px 0 0;
 }
 
-header nav ul li:last-child a {
-  margin-right: 0;
-  padding-right: 0;
-}
-
 header nav ul li a:hover {
   color: #bdbdbd;
   text-decoration: none;
 }
 
-/* -------  Search Form ------- */
-
-form {
+#menu {
   display: flex;
-  flex-direction: row;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+/* -------  Search Form ------- */
+form {
   border: 2px solid #ff385c;
-  padding: 10px
+  padding: 10px;
 }
 
 form label {
   font-weight: bold;
 }
 
-form select, form input {
+form select,
+form input {
   margin-bottom: 20px;
   width: 180px;
 }
 
 form button {
-  display: flex;
-  flex-direction: row;
   background-color: #ff385c;
   border: none;
   color: #fff;
@@ -136,22 +114,31 @@ form button {
   width: 100%;
 }
 
-.date::placeholder {
-  color: black;
-}
-
-.space-between {
+form div {
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  justify-content:space-between;
 }
 
-/* ------- Ideas ------- */
+/* -------  About ------- */
 
-.col2 {
+#about {
+  display: flex;
   flex-direction: column;
-  align-items: center;
 }
+
+img.item {
+  width: 100%;
+}
+
+img.item-double {
+  width: 100%;
+}
+
+#host img {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 
 /* -------  Footer ------- */
 
@@ -165,79 +152,76 @@ footer p {
   padding: 20px;
 }
 
-/* -------  Media Query for Desktop ------- */
+/* -------  Media Query ------- */
 
-/* *** media query for header */
+@media all and (max-width: 380px) {
+  .logo {
+    font-size: 48px;
+  }  
+
+}
 
 @media all and (min-width: 480px) {
-  header {
-    /* Changes the default setting from `block` to `flex`. */
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  header nav {
-    align-items: center;
-    justify-content: center;
-  }
-  header nav ul li a:hover {
-    color: #bdbdbd;
-  }
-  .logo {
-    font-size: 30px;
-    justify-content: center;
-  }
-}
 
-/* rule for Form area */
-
-@media all and (min-width: 1200px) {
-  .form-container {
+  form {
     display: flex;
-    justify-content: space-between;
+    justify-content:space-between;
+    gap: .5rem;
   }
-  .space-between {
+
+  form div {
     display: flex;
     flex-direction: column;
-    margin-right: 40px;
+    min-width: 0;
   }
-  .button-container {
-    width: 20%;
-    display: flex;
-    justify-content: flex-end;
+
+  form button {
+    max-width: 20%;
   }
+
+  form select,
+form input {
+  margin-bottom: 20px;
+  width: 100%;
 }
 
-/* rule for About section */
-
-#about div {
-  display: flex;
-  flex-direction: row;
-}
-@media all and (min-width: 750px) {
-  .col {
-    display: flex;
+  .group {
     flex-direction: row;
-    justify-content: flex-start;
+    align-items: center;
+    gap: 10px
   }
-  .padding {
-    margin: 10px;
+
+  #about .group img.item {
+    width: 0;
+  }
+  
+  img.item-double {
+    width: 0;
+  }
+
+  #ideas .group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #host .group img.item {
+    width: 0;
   }
 }
 
-/* rule for Ideas section */
-
-@media all and (min-width: 750px) {
-  .picture-grid {
+@media all and (min-width: 650px) {
+  header {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-between;
+    padding: 0 30px;
+    align-items: center;
   }
-  .col2 {
-    flex: 1 0 calc(35% - 20px);
-    margin: 5px;
-  }
-  .padding {
-    margin: 10px;
+}
+
+@media all and (min-width: 1000px) {
+  form select,
+  form input {
+    margin-bottom: 20px;
+    width: 180px;
   }
 }
