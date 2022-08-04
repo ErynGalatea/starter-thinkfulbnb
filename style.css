@@ -54,6 +54,11 @@ main img {
   flex: 2;
 }
 
+.paragraph {
+  display:flex;
+  flex 2;
+}
+
 /* -------  Navigation ------- */
 
 header {
@@ -109,6 +114,11 @@ form {
   flex-direction: row;
   border: 2px solid #ff385c;
   padding: 10px;
+}
+
+.item {
+  display: flex;
+  flex: 1;
 }
 
 form label {
